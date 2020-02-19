@@ -1,5 +1,6 @@
 package com.company.controller;
 
+import com.company.model.User;
 import com.company.view.View;
 
 import java.util.Scanner;
@@ -24,7 +25,15 @@ public class InputNoteNoteBook {
         this.sc = sc;
     }
 
-       public void inputNote() {
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void inputNote() {
         UtilityController utilityController =
                 new UtilityController(sc, view);
         String str = (String.valueOf(View.bundle.getLocale()).equals("ua"))
@@ -36,5 +45,10 @@ public class InputNoteNoteBook {
         this.login =
                 utilityController.inputStringValueWithScanner
                         (LOGIN_DATA, REGEX_LOGIN);
+    }
+
+    public User newUser(){
+        User newUser = new User(getFirstName(), getLogin());
+        return newUser;
     }
 }

@@ -22,5 +22,6 @@ public class Controller {
         InputNoteNoteBook inputNoteNoteBook =
                 new InputNoteNoteBook(view, sc);
         inputNoteNoteBook.inputNote();
+        Model.addNewUser(inputNoteNoteBook.newUser());
     }
 }
